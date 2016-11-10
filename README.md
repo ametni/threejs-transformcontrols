@@ -5,11 +5,11 @@ A module for using THREE.TransformControls with nodejs
 See the [original](http://threejs.org/examples/#misc_controls_transform) for
 a demo.
 
-Updated for THREE __R82__.
+Updated for THREE __R78__.
 
 ## Installation
 
-`npm install threejs-transformcontrols`
+`npm install three-transformcontrols`
 
 ## Usage
 
