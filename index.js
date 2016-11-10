@@ -3,6 +3,8 @@
  *
  * @author Lloyd Henning / https://eldog.me.uk
  *
+ * @author Nicolas Delahaigue / https://github.com/NicolasDelahaigue
+ *
  */
 
 'use strict';
@@ -253,7 +255,7 @@ THREE.TransformGizmoTranslate = function () {
 
     Y: [
       [ new THREE.Mesh( arrowGeometry, new GizmoMaterial( { color: 0x00ff00 } ) ), [ 0, 0.5, 0 ] ],
-      [  new THREE.Line( lineYGeometry, new GizmoLineMaterial( { color: 0x00ff00 } ) ) ]
+      [	new THREE.Line( lineYGeometry, new GizmoLineMaterial( { color: 0x00ff00 } ) ) ]
     ],
 
     Z: [
@@ -423,7 +425,7 @@ THREE.TransformGizmoRotate = function () {
     ],
 
     XYZE: [
-      [ new THREE.Mesh( new THREE.Geometry() ) ]// TODO
+      [ new THREE.Mesh() ]// TODO
     ]
 
   };
@@ -802,7 +804,15 @@ THREE.TransformControls = function ( camera, domElement ) {
     this.position.copy( worldPosition );
     this.scale.set( scale, scale, scale );
 
-    eye.copy( camPosition ).sub( worldPosition ).normalize();
+    if ( camera instanceof THREE.PerspectiveCamera ) {
+
+      eye.copy( camPosition ).sub( worldPosition ).normalize();
+
+    } else if ( camera instanceof THREE.OrthographicCamera ) {
+
+      eye.copy( camPosition ).normalize();
+
+    }
 
     if ( scope.space === "local" ) {
 
@@ -1116,7 +1126,7 @@ THREE.TransformControls = function ( camera, domElement ) {
 
     _dragging = false;
 
-    if ( event instanceof TouchEvent ) {
+    if ( 'TouchEvent' in window && event instanceof TouchEvent ) {
 
       // Force "rollover"
 
@@ -1150,7 +1160,6 @@ THREE.TransformControls = function ( camera, domElement ) {
 
 THREE.TransformControls.prototype = Object.create( THREE.Object3D.prototype );
 THREE.TransformControls.prototype.constructor = THREE.TransformControls;
-
 
 module.exports = THREE.TransformControls;
 

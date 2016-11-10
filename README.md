@@ -1,20 +1,20 @@
-# three-transformcontrols
+# threejs-transformcontrols
 
 A module for using THREE.TransformControls with nodejs
 
 See the [original](http://threejs.org/examples/#misc_controls_transform) for
 a demo.
 
-Updated for THREE __R78__.
+Updated for THREE __R81__.
 
 ## Installation
 
-`npm install three-transformcontrols`
+`npm install threejs-transformcontrols`
 
 ## Usage
 
 ```javascript
-var TransformControls = require('three-transformcontrols');
+var TransformControls = require('threejs-transformcontrols');
 var controls = new TransformControls(camera, domElement);
 ```
 
