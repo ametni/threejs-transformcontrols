@@ -1,5 +1,5 @@
 {
-  "name": "three-transformcontrols",
+  "name": "threejs-transformcontrols",
   "version": "0.82.0",
   "description": "A module for using THREE.TransformControls with nodejs",
   "main": "index.js",
