@@ -19,8 +19,8 @@
   "author": "Nicolas Delahaigue",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "^2.4.5",
-    "mock-browser": "^0.92.10"
+    "mocha": "^3.1.2",
+    "mock-browser": "^0.92.12"
   },
   "repository": {
     "type": "git",
