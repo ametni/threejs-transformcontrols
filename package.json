@@ -4,7 +4,7 @@
   "description": "A module for using THREE.TransformControls with nodejs",
   "main": "index.js",
   "dependencies": {
-    "three": "0.82.1"
+    "three": "0.83.0"
   },
   "scripts": {
     "test": "node_modules/mocha/bin/mocha"
