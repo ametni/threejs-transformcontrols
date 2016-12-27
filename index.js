@@ -625,6 +625,7 @@ THREE.TransformControls = function (camera, domElement) {
   this.space = "world";
   this.size = 1;
   this.axis = null;
+  var minScale = undefined;
 
   var scope = this;
 
@@ -724,6 +725,7 @@ THREE.TransformControls = function (camera, domElement) {
     domElement.removeEventListener("touchleave", onPointerUp);
 
   };
+
 
   this.attach = function (object) {
 
@@ -997,6 +999,12 @@ THREE.TransformControls = function (camera, domElement) {
           if (scope.axis === "Y") scope.object.scale.y = oldScale.y * ( 1 + point.y / oldScale.y );
           if (scope.axis === "Z") scope.object.scale.z = oldScale.z * ( 1 + point.z / oldScale.z );
 
+        }
+
+        if (scope.minScale !== undefined) {
+          if (scope.object.scale.x < scope.minScale.x) scope.object.scale.x = scope.minScale.x;
+          if (scope.object.scale.y < scope.minScale.y) scope.object.scale.y = scope.minScale.y;
+          if (scope.object.scale.z < scope.minScale.z) scope.object.scale.z = scope.minScale.z;
         }
 
       }
